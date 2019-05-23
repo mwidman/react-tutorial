@@ -1,7 +1,7 @@
 import React from 'react';
 import './Ninjas.css'; 
 
-const renderNinja = (ninja) =>  {
+const renderNinja = (ninja, deleteNinja) =>  {
   const { id, name, age, belt } = ninja;
 
   return (
@@ -9,12 +9,13 @@ const renderNinja = (ninja) =>  {
       <div>Name: {name}</div>
       <div>Age: {age}</div>
       <div>Belt: {belt}</div>
+      <button onClick={() => deleteNinja(id)}>Delete Ninja</button>
     </div>
   );
 }
 
-const Ninjas = ({ninjas}) => {
-  const ninjaList = ninjas.map(ninja => ninja.age > 20 ? renderNinja(ninja) : null);
+const Ninjas = ({ninjas, deleteNinja}) => {
+  const ninjaList = ninjas.map(ninja => ninja.age > 20 ? renderNinja(ninja, deleteNinja) : null);
   return (
     <div className="ninja-list">
       { ninjaList }
