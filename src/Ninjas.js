@@ -14,9 +14,10 @@ const renderNinja = (ninja) =>  {
 }
 
 const Ninjas = ({ninjas}) => {
+  const ninjaList = ninjas.map(ninja => ninja.age > 20 ? renderNinja(ninja) : null);
   return (
     <div className="ninja-list">
-      { ninjas.map(ninja => renderNinja(ninja)) }
+      { ninjaList }
     </div>
   );
 }
